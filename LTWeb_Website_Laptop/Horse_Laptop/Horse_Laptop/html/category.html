@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh mục - Tech World</title>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <!-- ========== HEADER ========== -->
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="index.html" class="logo-link">
+                        <img src="../images/logo-th.jpg" alt="Tech World Logo">
+                        <span>Tech World</span>
+                    </a>
+                </div>
+                
+                <nav class="nav" id="nav">
+        <ul class="nav-list">
+            <li class="dropdown">
+            <a href="#">LapTop <i class="fa fa-caret-down"></i></a>
+                <ul class="dropdown-content">
+                    <li><a href="category.html?cat=hp">Laptop HP</a></li>
+                    <li><a href="category.html?cat=dell">Laptop Dell</a></li>
+                    <li><a href="category.html?cat=lenovo">Laptop Lenovo</a></li>
+                    <li><a href="category.html?cat=macbook">MacBook</a></li>
+                </ul>
+            </li>
+                <li><a href="orders.html">Đơn hàng của bạn</a></li>
+                <li><a href="contact.html">Liên hệ</a></li>
+                <li><a href="about.html">Giới thiệu</a></li>
+        </ul>
+    </nav>
+                
+                <div class="search-box">
+                    <input type="text" placeholder="Tìm kiếm sản phẩm..." id="searchInput">
+                    <button class="search-btn" id="searchBtn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <path d="m21 21-4.35-4.35"></path>
+                        </svg>
+                    </button>
+                </div>
+                
+                <div class="header-icons">
+                    <button class="icon-btn cart-btn" id="cartBtn">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                            <line x1="3" y1="6" x2="21" y2="6"></line>
+                            <path d="M16 10a4 4 0 0 1-8 0"></path>
+                        </svg>
+                        <span class="badge" id="cartBadge">0</span>
+                    </button>
+                   <div id="auth-buttons"></div> <!-- 26/3 -->
+                    <button class="menu-toggle" id="menuToggle">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ========== CATEGORY PAGE ========== -->
+    <section class="category-page">
+        <div class="container">
+            <div class="category-header">
+                <div>
+                    <h1 class="category-title" id="categoryTitle">Danh mục</h1>
+                    <p class="category-meta" id="categoryMeta"></p>
+                </div>
+                <a class="category-back" href="index.html">← Quay về trang chủ</a>
+            </div>
+
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+                <a href="index.html">Trang chủ</a>
+                <span class="breadcrumb-sep">›</span>
+                <span class="breadcrumb-current" id="breadcrumbCurrent">Laptop HP</span>
+            </nav>
+
+            <div class="promo-strip" role="region" aria-label="Ưu đãi">
+                <div class="promo-strip-text">
+                    <div class="promo-strip-title" id="promoTitle">Ưu đãi Laptop HP Mới</div>
+                    <div class="promo-strip-subtitle" id="promoSubtitle">Nhận ngay AirPods 3 khi mua</div>
+                </div>
+                <div class="promo-strip-art" aria-hidden="true">
+                    
+                    <svg class="promo-strip-airpods" viewBox="0 0 120 120" fill="none">
+                        <path d="M39 33c0-10 8-18 18-18s18 8 18 18v30c0 7-5 13-12 14v22c0 7-6 13-13 13s-13-6-13-13V77c-7-1-12-7-12-14V33Z" stroke="white" stroke-opacity="0.92" stroke-width="6" stroke-linecap="round"/>
+                        <path d="M81 43c0-8 6-14 14-14s14 6 14 14v18c0 6-4 11-10 12v20c0 6-5 11-11 11s-11-5-11-11V73c-6-1-10-6-10-12V43Z" stroke="white" stroke-opacity="0.68" stroke-width="6" stroke-linecap="round"/>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="category-toolbar" aria-label="Sắp xếp">
+                <div class="sort-tabs" id="sortTabs">
+                    <button class="sort-tab active" data-sort="popular" type="button">Phổ biến</button>
+                    <button class="sort-tab" data-sort="promo" type="button">Khuyến mãi HOT</button>
+                    <button class="sort-tab" data-sort="price-asc" type="button">Giá Thấp → Cao</button>
+                    <button class="sort-tab" data-sort="price-desc" type="button">Giá Cao → Thấp</button>
+                </div>
+            </div>
+
+            <div class="product-grid" id="productGrid"></div>
+        </div>
+    </section>
+    <!-- CONTACT -->
+            <div class="contact-fixed">
+                <button class="contact-btn" data-contact="zalo" style="background: none; border: none; cursor: pointer; padding: 0;"><img src="../images/zalo.png" alt="Zalo"></button>
+                <button class="contact-btn" data-contact="messenger" style="background: none; border: none; cursor: pointer; padding: 0;"><img src="../images/mess.png" alt="Messenger"></button>
+                <button class="contact-btn" data-contact="hotline" style="background: none; border: none; cursor: pointer; padding: 0; font-size: 22px;">📞</button>
+            </div>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer" id="support">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Column 1 -->
+                <div class="footer-col">
+                    <h3>Về chúng tôi</h3>
+                    <ul>
+                        <li><a href="#">Giới thiệu</a></li>
+                        <li><a href="#">Tuyển dụng</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 2 -->
+                <div class="footer-col">
+                    <h3>Hỗ trợ</h3>
+                    <ul>
+                        <li><a href="#">Chính sách bảo hành</a></li>
+                        <li><a href="#">Chính sách đổi trả</a></li>
+                        <li><a href="#">Vận chuyển</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 3 -->
+                <div class="footer-col">
+                    <h3>Liên hệ</h3>
+                    <ul>
+                        <li><a href="#">Hotline: 0966457974</a></li>
+                        <li><a href="#">Email: vyphan21222005@gmail.com</a></li>
+                        <li><a href="#">Địa chỉ: 285 Cách Mạng Tháng Tám, Phường 12, Quận 10, Thành phố Hồ Chí Minh, Việt Nam</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 4 -->
+                <div class="footer-col">
+                    <h3>Kết nối</h3>
+                    <p>Đăng ký nhận tin tức</p>
+                    <form class="newsletter-form" id="newsletterForm">
+                        <input type="email" placeholder="Email của bạn" required>
+                        <button type="submit">Đăng ký</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </footer>
+            
+            <div class="footer-bottom">
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                        </svg>
+                    </a>
+                    <a href="#" aria-label="Twitter">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+                        </svg>
+                    </a>
+                    <a href="#" aria-label="Instagram">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg>
+                    </a>
+                    <a href="#" aria-label="YouTube">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path>
+                            <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========== CART MODAL ========== -->
+    <div class="cart-modal hidden" id="cartModal">
+        <div class="cart-backdrop" id="cartBackdrop"></div>
+        <div class="cart-content">
+            <div class="cart-header">
+                <h3>Giỏ hàng</h3>
+                <button class="cart-close" id="cartCloseBtn">&times;</button>
+            </div>
+            <div class="cart-body">
+                <div id="cartItems"></div>
+                <div class="cart-empty" id="cartEmpty">Giỏ hàng của bạn đang trống.</div>
+            </div>
+            <div class="cart-footer">
+                <div class="cart-total">
+                    <span>Tổng:</span>
+                    <span id="cartTotal">$0</span>
+                </div>
+                <button class="btn btn-primary" id="checkoutBtn">Thanh toán</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== TOAST NOTIFICATION ========== -->
+    <div class="toast-container" id="toastContainer"></div>
+    
+    <!-- JavaScript -->
+    <script src="../js/store.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/product.js"></script>
+    <script src="../js/cart.js"></script>
+    <script src="../js/search.js"></script>
+    <script src="../js/category.js"></script>
+    <script src="../js/contact-widget.js"></script>
+
+
+</body>
+</html>

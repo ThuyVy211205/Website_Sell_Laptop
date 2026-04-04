@@ -1,0 +1,329 @@
+/* Desktop: > 1024px, Tablet: 768-1024px, Mobile: < 768px */
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+}
+
+/* Global admin fixes */
+.admin-body {
+    margin: 0;
+    padding: 0;
+}
+
+/* ========== TABLET ========== */
+@media (max-width: 1024px) {
+    .hero .container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .hero-content {
+        text-align: center;
+    }
+
+    .hero-title {
+        font-size: 48px;
+    }
+
+    .hero-subtitle {
+        font-size: 18px;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .search-box {
+        max-width: 260px;
+    }
+}
+
+/* ========== MOBILE ========== */
+@media (max-width: 768px) {
+    .header-content {
+        gap: 8px;
+    }
+
+    .nav {
+        position: absolute;
+        top: 64px;
+        left: 0;
+        right: 0;
+        background: #ffffff;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+        transform: translateY(-120%);
+        opacity: 0;
+        visibility: hidden;
+        transition: 0.25s ease;
+    }
+
+    .nav.open {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .nav-list {
+        flex-direction: column;
+        padding: 12px 16px 16px;
+    }
+
+    .nav-list li {
+        padding: 4px 0;
+    }
+
+    .search-box {
+        display: none;
+    }
+
+    .home-banner {
+        padding-top: 10px;
+    }
+
+    .home-banner-slider {
+        aspect-ratio: 16 / 7;
+    }
+
+    .home-banner-image {
+        object-position: center;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    .hero {
+        padding: 48px 0 40px;
+    }
+
+    .hero-title {
+        font-size: 40px;
+    }
+
+    .hero .container {
+        gap: 32px;
+    }
+
+    .hero-image img {
+        max-width: 360px;
+    }
+
+    .section-title {
+        font-size: 28px;
+        margin-bottom: 24px;
+    }
+
+    .category-grid,
+    .product-grid,
+    .review-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .promo-banner h2 {
+        font-size: 32px;
+    }
+
+    .promo-banner p {
+        font-size: 16px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .cart-content {
+        max-width: 100%;
+        border-radius: 16px 16px 0 0;
+    }
+
+    .orders-page {
+        padding-top: var(--spacing-lg);
+    }
+
+    .orders-header h1 {
+        font-size: 28px;
+    }
+
+    .order-card-head {
+        flex-direction: column;
+    }
+
+    .order-total {
+        font-size: 20px;
+    }
+
+    .order-row {
+        align-items: flex-start;
+    }
+
+    .order-row img {
+        width: 56px;
+        height: 56px;
+    }
+
+    .order-row-total {
+        font-size: 14px;
+    }
+
+    /* ===== ADMIN MOBILE ===== */
+    /* Reset admin layout cho mobile */
+    .admin-body {
+        display: block !important;
+        overflow-x: hidden !important;
+    }
+
+    .admin-main {
+        margin-left: 0 !important;
+        width: 100% !important;
+        padding: 0 !important;
+    }
+
+    /* Hiển thị button toggle menu trên mobile */
+    .admin-toggle-btn {
+        display: inline-flex !important;
+        padding: 6px 12px !important;
+        font-size: 12px !important;
+    }
+
+    /* Ẩn sidebar mặc định trên mobile */
+    .admin-sidebar {
+        position: fixed !important;
+        left: 0 !important;
+        top: 0 !important;
+        width: 240px !important;
+        height: 100vh !important;
+        z-index: 1001 !important;
+        transform: translateX(-100%) !important;
+        transition: transform 0.3s ease !important;
+        padding: 12px !important;
+        overflow-y: auto !important;
+    }
+
+    /* Hiển thị sidebar khi có class 'open' */
+    .admin-sidebar.open {
+        transform: translateX(0) !important;
+    }
+
+    /* Hiển thị backdrop khi sidebar mở */
+    .admin-sidebar-backdrop {
+        display: none !important;
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        background: rgba(0, 0, 0, 0.5) !important;
+        z-index: 1000 !important;
+    }
+
+    .admin-body.sidebar-open .admin-sidebar-backdrop {
+        display: block !important;
+    }
+
+    /* Header styling cho mobile */
+    .admin-header {
+        padding: 8px !important;
+        margin: 4px !important;
+        gap: 8px !important;
+        flex-wrap: wrap;
+    }
+
+    /* Title styling */
+    #current-tab-title {
+        font-size: 13px !important;
+    }
+
+    /* Content area */
+    .admin-content {
+        padding: 8px !important;
+    }
+
+    /* Dashboard cards */
+    .dashboard-cards {
+        grid-template-columns: 1fr !important;
+        gap: 8px !important;
+        margin-bottom: 8px !important;
+    }
+
+    .dash-card {
+        padding: 10px !important;
+    }
+
+    .dash-card h4 {
+        font-size: 12px !important;
+        margin-bottom: 4px !important;
+    }
+
+    .dash-card .value {
+        font-size: 16px !important;
+    }
+
+    /* Cards */
+    .modern-card {
+        padding: 10px !important;
+        margin-bottom: 8px !important;
+    }
+
+    .card-header h3 {
+        font-size: 12px !important;
+        margin: 0 !important;
+    }
+
+    /* Form styling */
+    #product-form {
+        grid-template-columns: 1fr !important;
+        gap: 8px !important;
+    }
+
+    #product-form input,
+    #product-form select {
+        padding: 6px !important;
+        font-size: 11px !important;
+    }
+
+    #product-form button {
+        padding: 6px 10px !important;
+        font-size: 11px !important;
+    }
+
+    /* Table styling */
+    .data-table {
+        font-size: 10px !important;
+    }
+
+    .data-table th {
+        font-size: 10px !important;
+        padding: 4px !important;
+    }
+
+    .data-table td {
+        font-size: 9px !important;
+        padding: 4px !important;
+    }
+
+    .table-img {
+        width: 32px !important;
+        height: 24px !important;
+    }
+
+    .action-btn {
+        padding: 4px 8px !important;
+        font-size: 10px !important;
+    }
+
+    .btn-edit,
+    .btn-delete {
+        padding: 4px 6px !important;
+        font-size: 9px !important;
+    }
+}
+

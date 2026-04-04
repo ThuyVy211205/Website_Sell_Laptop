@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gọi điện - Horse Store</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #4be1ba 75%, #38f9d7 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            position: relative;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(255, 107, 107, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(102, 126, 234, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 20%, rgba(240, 147, 251, 0.08) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        main {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hotline-contact-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 60vh;
+            padding: 40px 0;
+        }
+        .hotline-contact-container .hotline-info {
+            font-size: 22px;
+            color: #fff;
+            font-weight: 700;
+            margin-bottom: 18px;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+        .hotline-contact-container .hotline-desc {
+            color: #fff;
+            font-size: 15px;
+            margin-bottom: 24px;
+            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+        }
+        .hotline-contact-container .call-btn {
+            display: inline-block;
+            padding: 14px 36px;
+            background: rgba(255, 255, 255, 0.95);
+            color: #667eea;
+            border-radius: 32px;
+            font-size: 18px;
+            font-weight: 600;
+            text-decoration: none;
+            box-shadow: 0 8px 32px rgba(102, 126, 234, 0.3);
+            transition: all 0.2s;
+        }
+        .hotline-contact-container .call-btn:hover {
+            background: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 48px rgba(102, 126, 234, 0.4);
+        }
+        .hotline-contact-container .back-link {
+            margin-top: 24px;
+            color: #fff;
+            text-decoration: underline;
+            font-size: 15px;
+            transition: opacity 0.2s;
+        }
+        .hotline-contact-container .back-link:hover {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Gọi điện cho Horse Store</h1>
+        <nav>
+            <a href="index.html">Trang chủ</a> |
+            <a href="category.html">Sản phẩm</a> |
+            <a href="contact.html">Liên hệ</a>
+        </nav>
+    </header>
+    <main>
+        <div class="hotline-contact-container">
+            <div class="hotline-info">Hotline: 0868264437</div>
+            <div class="hotline-desc">Bấm nút bên dưới để gọi nhanh cho Horse Store và được tư vấn ngay!</div>
+            <a class="call-btn" href="tel:0868264437">Gọi ngay</a>
+            <a class="back-link" href="contact.html">&larr; Quay lại trang liên hệ</a>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2026 Horse Store. All rights reserved.</p>
+    </footer>
+    
+    <script src="../js/contact-widget.js"></script>
+</body>
+</html>

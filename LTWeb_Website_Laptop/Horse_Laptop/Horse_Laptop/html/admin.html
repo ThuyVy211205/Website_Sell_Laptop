@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản Trị Hệ Thống - Tech World</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/admin.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body class="admin-body">
+    
+    <!-- Sidebar Backdrop (Mobile) -->
+    <div class="admin-sidebar-backdrop" id="adminBackdrop" onclick="toggleAdminMenu()"></div>
+
+    <aside class="admin-sidebar">
+        <div class="admin-logo-wrapper">
+            <img src="../images/logo-th.jpg" alt="Tech World Logo" class="admin-logo-img">
+            <div class="admin-logo-text">Tech World</div>
+        </div>
+        <ul class="admin-menu">
+            <li class="active" onclick="switchAdminTab('dashboard-view', this)">📊 Bảng Điều Khiển</li>
+            <li onclick="switchAdminTab('products-manage', this)">📦 Quản Lý Kho Máy</li>
+            <li onclick="switchAdminTab('orders-manage', this)">🛒 Đơn Hàng Hệ Thống</li>
+            <li style="margin-top: auto; border-top: 1px solid #333; padding-top: 20px;">
+                <a href="index.html" style="color: #f1416c; text-decoration: none; font-weight: 600;">🏠 Thoát Quản Trị</a>
+            </li>
+        </ul>
+    </aside>
+
+    <main class="admin-main">
+        <header class="admin-header">
+            <button class="admin-toggle-btn" id="adminToggleBtn" onclick="toggleAdminMenu()">☰ Menu</button>
+            <h2 id="current-tab-title" style="margin: 0; font-size: 20px; flex: 1;">Bảng Điều Khiển</h2>
+            <div class="admin-profile">
+                <div style="text-align: right; margin-right: 15px;">
+                    <div style="font-weight: 700; color: #181c32;">Admin Tech World</div>
+                    <div style="font-size: 11px; color: #a1a5b7;">Quản trị viên hệ thống</div>
+                </div>
+            </div>
+        </header>
+
+        <div class="admin-content">
+            
+            <section id="dashboard-view" class="admin-section active">
+                <div class="dashboard-cards">
+                    <div class="dash-card">
+                        <h4>Doanh Thu Laptop</h4>
+                        <div class="value" id="dash-revenue">0₫</div>
+                    </div>
+                    <div class="dash-card">
+                        <h4>Đơn Máy Mới</h4>
+                        <div class="value" id="dash-orders">0</div>
+                    </div>
+                    <div class="dash-card">
+                        <h4>Máy Trong Kho</h4>
+                        <div class="value" id="dash-products">0</div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="products-manage" class="admin-section">
+                <div class="modern-card">
+                    <div class="card-header"><h3 id="form-title">Thêm Sản Phẩm Laptop Mới</h3></div>
+                    <form id="product-form" onsubmit="saveProduct(event)" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                        <input type="hidden" id="prod-id">
+                        
+                        <div style="grid-column: 1 / -1;">
+                            <label style="display:block; margin-bottom:8px; font-weight:500;">Tên Laptop (Model)</label>
+                            <input type="text" id="prod-name" placeholder="VD: MacBook Pro 14 M3 2024" required style="width: 100%; padding: 12px; border: 1px solid #e4e6ef; border-radius: 8px;">
+                        </div>
+
+                        <div>
+                            <label style="display:block; margin-bottom:8px; font-weight:500;">Giá Niêm Yết (VNĐ)</label>
+                            <input type="number" id="prod-price" placeholder="VD: 35000000" required style="width: 100%; padding: 12px; border: 1px solid #e4e6ef; border-radius: 8px;">
+                        </div>
+
+                        <div>
+                            <label style="display:block; margin-bottom:8px; font-weight:500;">Hãng Sản Xuất</label>
+                            <select id="prod-cat" style="width: 100%; padding: 12px; border: 1px solid #e4e6ef; border-radius: 8px; background: white;">
+                                <option value="hp">Laptop HP</option>
+                                <option value="dell">Laptop Dell</option>
+                                <option value="lenovo">Laptop Lenovo</option>
+                                <option value="macbook">MacBook (Apple)</option>
+                            </select>
+                        </div>
+
+                        <div style="grid-column: 1 / -1;">
+                            <label style="display:block; margin-bottom:8px; font-weight:500;">Đường dẫn ảnh (Thư mục images/)</label>
+                            <input type="text" id="prod-image" placeholder="VD: images/macbook-air.jpg" required style="width: 100%; padding: 12px; border: 1px solid #e4e6ef; border-radius: 8px;">
+                        </div>
+
+                        <div style="grid-column: 1 / -1; display: flex; gap: 12px; margin-top: 10px;">
+                            <button type="submit" class="action-btn" id="save-btn">Lưu Vào Hệ Thống</button>
+                            <button type="button" onclick="resetForm()" style="background: #f5f8fa; color: #7e8299; border: none; padding: 12px 25px; border-radius: 8px; cursor: pointer; font-weight: 600;">Hủy / Làm Mới</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="modern-card">
+                    <div class="card-header"><h3>Danh Sách Laptop Đang Kinh Doanh</h3></div>
+                    <div style="overflow-x: auto;">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Hình Ảnh</th>
+                                    <th>Tên Laptop</th>
+                                    <th>Phân Loại</th>
+                                    <th>Giá Bán</th>
+                                    <th>Hành Động</th>
+                                </tr>
+                            </thead>
+                            <tbody id="admin-product-list">
+                                </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <section id="orders-manage" class="admin-section">
+                <div class="modern-card">
+                    <div class="card-header"><h3>Lịch Sử Giao Dịch</h3></div>
+                    <div style="overflow-x: auto;">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Mã Đơn</th>
+                                    <th>Thời Gian</th>
+                                    <th>Tổng Tiền</th>
+                                    <th>Trạng Thái</th>
+                                    <th>Chi Tiết</th>
+                                </tr>
+                            </thead>
+                            <tbody id="admin-order-list">
+                                </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <script src="../js/store.js"></script>
+    <script src="../js/product.js"></script>
+    <script src="../js/admin.js"></script>
+    <script src="../js/contact-widget.js"></script>
+    <script>
+        const user = JSON.parse(localStorage.getItem('ecom_current_user'));
+            if (!user || user.role !== 'admin') {
+                window.location.href = 'login.html';
+             }
+    </script>
+
+</body>
+</html>

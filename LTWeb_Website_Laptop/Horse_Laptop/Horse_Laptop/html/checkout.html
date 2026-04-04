@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thanh toán | Tech World</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/checkout.css">
+</head>
+<body>
+  <div class="checkout-page">
+    <header class="checkout-header">
+      <a class="brand" href="index.html">Tech World</a>
+      <a class="back-link" href="index.html">← Tiếp tục mua sắm</a>
+    </header>
+
+    <main class="checkout-layout">
+      <section class="checkout-form-panel">
+        <h1>Thông tin giao hàng</h1>
+        <p class="panel-subtitle">Vui lòng điền đầy đủ thông tin để hoàn tất đơn hàng.</p>
+
+        <form id="checkoutForm" novalidate>
+          <div class="form-group">
+            <label for="fullName">Họ và tên</label>
+            <input type="text" id="fullName" name="fullName" autocomplete="name" placeholder="Phan Thúy Vy">
+            <small class="error-text" id="fullNameError"></small>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="phone">Số điện thoại</label>
+              <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="0987654321">
+              <small class="error-text" id="phoneError"></small>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" autocomplete="email" placeholder="you@email.com">
+              <small class="error-text" id="emailError"></small>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="address">Địa chỉ giao hàng</label>
+            <input type="text" id="address" name="address" autocomplete="street-address" placeholder="Số nhà, tên đường, phường/xã">
+            <small class="error-text" id="addressError"></small>
+          </div>
+
+          <div class="form-group">
+            <label for="city">Tỉnh / Thành phố</label>
+            <input type="text" id="city" name="city" autocomplete="address-level1" placeholder="TP. Hồ Chí Minh">
+            <small class="error-text" id="cityError"></small>
+          </div>
+
+          <div class="form-group">
+            <label for="note">Ghi chú cho đơn hàng (optional)</label>
+            <textarea id="note" name="note" rows="3" placeholder="Ví dụ: giao giờ hành chính..."></textarea>
+          </div>
+
+          <button type="submit" id="placeOrderBtn" class="place-order-btn">Đặt hàng</button>
+        </form>
+      </section>
+
+      <aside class="order-summary-panel">
+        <h2>Đơn hàng của bạn</h2>
+        <div id="orderItems" class="order-items"></div>
+
+        <div class="summary-row total-row">
+          <span>Tổng tiền</span>
+          <strong id="orderTotal">0đ</strong>
+        </div>
+      </aside>
+    </main>
+  </div>
+
+  <script src="../js/store.js"></script>
+  <script src="../js/checkout.js"></script>
+  <script src="../js/contact-widget.js"></script>
+</body>
+</html>

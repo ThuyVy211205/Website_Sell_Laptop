@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Đặt hàng thành công | Tech World</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      background:
+        radial-gradient(1000px 380px at 0% -10%, #dcfce7 0%, transparent 50%),
+        radial-gradient(1200px 420px at 100% 0%, #dbeafe 0%, transparent 50%),
+        #f8fafc;
+      color: #0f172a;
+      padding: 24px;
+    }
+    .card {
+      width: min(560px, 100%);
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 18px;
+      box-shadow: 0 18px 38px rgba(15, 23, 42, 0.1);
+      padding: 28px;
+      text-align: center;
+    }
+    .icon {
+      width: 64px;
+      height: 64px;
+      margin: 0 auto 14px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: #16a34a;
+      color: #fff;
+      font-size: 28px;
+      font-weight: 700;
+    }
+    h1 { font-size: 28px; margin-bottom: 10px; }
+    p { color: #475569; margin-bottom: 8px; }
+    .order-id {
+      margin: 14px auto 22px;
+      display: inline-block;
+      background: #f1f5f9;
+      color: #0f172a;
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-weight: 700;
+      font-size: 14px;
+    }
+    .actions {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 4px;
+    }
+    a {
+      text-decoration: none;
+      border-radius: 10px;
+      padding: 10px 14px;
+      font-weight: 700;
+      font-size: 14px;
+      border: 1px solid #cbd5e1;
+      color: #0f172a;
+    }
+    a.primary {
+      background: #0f172a;
+      color: #fff;
+      border-color: #0f172a;
+    }
+  </style>
+</head>
+<body>
+  <section class="card">
+    <div class="icon">✓</div>
+    <h1>Đặt hàng thành công</h1>
+    <p>Cảm ơn bạn đã mua sắm tại Tech World.</p>
+    <p>Thông tin đơn hàng đã được lưu trên trình duyệt của bạn.</p>
+    <div class="order-id" id="orderId">Mã đơn: --</div>
+    <div class="actions">
+      <a class="primary" href="index.html">Tiếp tục mua sắm</a>
+      <a href="orders.html">Xem đơn hàng của bạn</a>
+    </div>
+  </section>
+
+  <script>
+    (function () {
+      try {
+        const raw = localStorage.getItem('apple_store_last_order');
+        const order = raw ? JSON.parse(raw) : null;
+        const el = document.getElementById('orderId');
+        if (order && order.id && el) {
+          el.textContent = `Mã đơn: ${order.id}`;
+        }
+      } catch (e) {
+        // noop
+      }
+    })();
+  </script>
+  <script src="../js/contact-widget.js"></script>
+</body>
+</html>

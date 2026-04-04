@@ -1,0 +1,171 @@
+/* Giao diện Admin chuyên nghiệp */
+:root {
+    --admin-primary: #1b84ff;
+    --admin-bg: #f5f8fa;
+    --admin-sidebar-bg: #1e1e2d;
+    --admin-text-muted: #a1a5b7;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+.admin-body {
+    background-color: var(--admin-bg);
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    display: flex;
+}
+
+.admin-sidebar {
+    width: 265px;
+    background: var(--admin-sidebar-bg);
+    min-height: 100vh;
+    padding: 30px 20px;
+    color: white;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+.admin-profile {
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-left: auto;
+}
+
+.admin-logo-wrapper {
+    display: flex;         /* Sắp xếp ảnh và chữ nằm ngang */
+    align-items: center;   /* Căn giữa theo chiều dọc */
+    justify-content: center; /* Căn giữa toàn bộ khối vào giữa sidebar */
+    gap: 12px;             /* Khoảng cách giữa ảnh và chữ */
+    margin-bottom: 40px;   /* Khoảng cách với menu bên dưới */
+}
+
+.admin-logo-img {
+    width: 45px;           /* Chiều rộng của ảnh logo */
+    height: 45px;          /* Chiều cao của ảnh logo */
+    object-fit: contain;  /* Đảm bảo ảnh đầu ngựa không bị méo */
+    border-radius: 50px;   /* Bo góc nhẹ cho ảnh (tùy chọn) */
+}
+
+.admin-logo-text {
+    font-size: 18px;       /* Kích thước chữ (giảm đi một chút cho cân với ảnh) */
+    font-weight: 700;
+    color: var(--admin-primary, #1b84ff); /* Màu xanh chủ đạo */
+    text-transform: uppercase; /* Viết hoa toàn bộ */
+    letter-spacing: 1px;   /* Khoảng cách giữa các chữ cái */
+}
+
+.admin-menu {
+    list-style: none;
+    padding: 0;
+}
+
+.admin-menu li {
+    padding: 12px 15px;
+    cursor: pointer;
+    border-radius: 8px;
+    color: var(--admin-text-muted);
+    margin-bottom: 5px;
+    transition: 0.3s;
+}
+
+.admin-menu li:hover, .admin-menu li.active {
+    background: #2b2b40;
+    color: white;
+}
+
+.admin-main {
+    margin-left: 265px;
+    width: calc(100% - 265px);
+    padding: 30px;
+}
+
+.admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 30px;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.05);
+}
+
+.dashboard-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.dash-card {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.05);
+}
+
+.dash-card h4 { color: var(--admin-text-muted); margin: 0 0 10px 0; }
+.dash-card .value { font-size: 24px; font-weight: 700; color: #181c32; }
+
+.modern-card {
+    background: white;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.05);
+    margin-bottom: 25px;
+}
+
+.table-img { width: 60px; height: 45px; object-fit: cover; border-radius: 4px; }
+
+.data-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+.data-table th { text-align: left; padding: 15px; border-bottom: 1px solid #f1f1f1; color: var(--admin-text-muted); font-size: 13px; }
+.data-table td { padding: 15px; border-bottom: 1px solid #f1f1f1; font-size: 14px; }
+
+.status-badge { padding: 5px 10px; border-radius: 6px; font-size: 12px; font-weight: 600; }
+.hp-badge { background: #e1f0ff; color: #0095e8; }
+.dell-badge { background: #f8f5ff; color: #7239ea; }
+.apple-badge { background: #fff5f8; color: #f1416c; }
+
+.btn-edit { background: #f1f1f1; color: #333; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; margin-right: 5px; }
+.btn-delete { background: #fff5f8; color: #f1416c; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; }
+.action-btn { background: var(--admin-primary); color: white; border: none; padding: 12px 25px; border-radius: 8px; font-weight: 600; cursor: pointer; }
+
+.admin-toggle-btn {
+    display: none;
+    background: var(--admin-primary);
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+    transition: background 0.2s ease;
+}
+
+.admin-toggle-btn:hover {
+    background: #0066cc;
+}
+
+.admin-sidebar-backdrop {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}

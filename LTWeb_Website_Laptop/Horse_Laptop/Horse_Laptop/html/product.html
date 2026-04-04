@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi tiết sản phẩm - Tech World</title>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/product.css">
+    
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <!-- ========== HEADER ========== -->
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="index.html" class="logo-link">
+                        <img src="../images/logo-th.jpg" alt="Tech World Logo">
+                        <span>Tech World</span>
+                    </a>
+                </div>
+                
+                <nav class="nav" id="nav">
+        <ul class="nav-list">
+            <li class="dropdown">
+            <a href="#">LapTop <i class="fa fa-caret-down"></i></a>
+                <ul class="dropdown-content">
+                    <li><a href="category.html?cat=hp">Laptop HP</a></li>
+                    <li><a href="category.html?cat=dell">Laptop Dell</a></li>
+                    <li><a href="category.html?cat=lenovo">Laptop Lenovo</a></li>
+                    <li><a href="category.html?cat=macbook">MacBook</a></li>
+                </ul>
+            </li>
+                <li><a href="orders.html">Đơn hàng của bạn</a></li>
+                <li><a href="contact.html">Liên hệ</a></li>
+                <li><a href="about.html">Giới thiệu</a></li>
+        </ul>
+    </nav>
+                
+                <div class="search-box">
+                    <input type="text" placeholder="Tìm kiếm sản phẩm..." id="searchInput">
+                    <button class="search-btn" id="searchBtn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <path d="m21 21-4.35-4.35"></path>
+                        </svg>
+                    </button>
+                </div>
+                
+                <div class="header-icons">
+                    <button class="icon-btn cart-btn" id="cartBtn">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                            <line x1="3" y1="6" x2="21" y2="6"></line>
+                            <path d="M16 10a4 4 0 0 1-8 0"></path>
+                        </svg>
+                        <span class="badge" id="cartBadge">0</span>
+                    </button>
+                    <div id="auth-buttons"></div>     <!-- 26 /3 -->
+                    <button class="menu-toggle" id="menuToggle">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ========== BREADCRUMB ========== -->
+    <div class="pd-breadcrumb-bar">
+        <div class="container">
+            <nav class="breadcrumb">
+                <a href="index.html">Trang chủ</a>
+                <span class="breadcrumb-sep">›</span>
+                <a href="category.html?cat=hp" id="pdBreadcrumbCat">Laptop HP</a>
+                <span class="breadcrumb-sep">›</span>
+                <span class="breadcrumb-current" id="pdBreadcrumbName">Chi tiết sản phẩm</span>
+            </nav>
+        </div>
+    </div>
+
+    <!-- ========== PRODUCT DETAIL ========== -->
+    <main class="pd-page">
+        <div class="container">
+            <div class="pd-layout">
+
+                <!-- LEFT: Gallery -->
+                <div class="pd-gallery">
+                    <h1 class="pd-title" id="pdTitle">Đang tải...</h1>
+                    
+                    <div class="pd-rating-row">
+                        <span class="pd-stars" id="pdStars">★★★★★</span>
+                        <span class="pd-rating-count" id="pdRatingCount">4.9 (365 đánh giá)</span>
+                    </div>
+
+                    <div class="pd-actions-row">
+                        <button class="pd-action-btn" id="pdFavBtn">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                            Yêu thích
+                        </button>
+                        <button class="pd-action-btn">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                            Hỏi đáp
+                        </button>
+                        <button class="pd-action-btn">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                            Thông số
+                        </button>
+                        <button class="pd-action-btn">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+                            So sánh
+                        </button>
+                    </div>
+
+                    <!-- Main image -->
+                    <div class="pd-main-image-wrap">
+                        <img src="" alt="" id="pdMainImage" class="pd-main-image">
+                        <span class="pd-badge-new" id="pdBadgeNew">Mới</span>
+                    </div>
+
+                    <!-- Thumbnail strip -->
+                    <div class="pd-thumbs" id="pdThumbs">
+                        <!-- Filled by JS -->
+                    </div>
+
+                    <!-- Cam kết -->
+                    <div class="pd-commits">
+                        <h3 class="pd-commits-title">Cam kết sản phẩm</h3>
+                        <ul class="pd-commits-list">
+                            <li>
+                                <span class="pd-commit-icon">✅</span>
+                                Máy mới 100%, chính hãng tại Việt Nam
+                            </li>
+                            <li>
+                                <span class="pd-commit-icon">🛡️</span>
+                                Bảo hành 12 tháng tại trung tâm
+                            </li>
+                            <li>
+                                <span class="pd-commit-icon">🚚</span>
+                                Giao hàng nhanh toàn quốc
+                            </li>
+                            <li>
+                                <span class="pd-commit-icon">🔄</span>
+                                Đổi trả trong 30 ngày
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- RIGHT: Info -->
+                <div class="pd-info">
+
+                    <!-- Price box -->
+                    <div class="pd-price-box">
+                        <div class="pd-price-main-col">
+                            <div class="pd-price-label">Giá sản phẩm</div>
+                            <div class="pd-price-current" id="pdPrice">$999</div>
+                            <div class="pd-price-old" id="pdOldPrice"></div>
+                        </div>
+                        <div class="pd-price-trade-col">
+                            <div class="pd-trade-badge">Thu cũ lên đời chỉ từ</div>
+                            <div class="pd-trade-price" id="pdTradePrice">$849</div>
+                            <div class="pd-trade-sub">Hỗ trợ thêm <strong class="pd-trade-highlight">$100</strong> <a href="#" class="pd-trade-link">Định giá ngay</a></div>
+                        </div>
+                    </div>
+
+                    <!-- Variants (Storage) -->
+                    <div class="pd-section" id="pdVariantSection">
+                        <div class="pd-section-label">Phiên bản</div>
+                        <div class="pd-variants" id="pdVariants">
+                            <!-- Filled by JS -->
+                        </div>
+                    </div>
+
+                    <!-- Colors -->
+                    <div class="pd-section" id="pdColorSection">
+                        <div class="pd-section-label">Màu sắc</div>
+                        <div class="pd-colors" id="pdColors">
+                            <!-- Filled by JS -->
+                        </div>
+                    </div>
+
+                    <!-- Smember savings -->
+                    <div class="pd-smember-bar">
+                        <div class="pd-smember-icon">💰</div>
+                        <div class="pd-smember-text">
+                            Tiết kiệm thêm đến <strong id="pdSmemberSave">$50</strong> cho thành viên
+                        </div>
+                        <a href="#" class="pd-smember-link">Kiểm tra giá cuối →</a>
+                    </div>
+
+                    <!-- Promotions -->
+                    <div class="pd-promo-box">
+                        <div class="pd-promo-header">
+                            <span class="pd-promo-icon">🎁</span>
+                            <span>Khuyến mãi áp dụng</span>
+                        </div>
+                        <ul class="pd-promo-list">
+                            <li>Giảm ngay $50 khi thanh toán qua ví điện tử</li>
+                            <li>Tặng AirTag trị giá $29 (số lượng có hạn)</li>
+                            <li>Miễn phí dán màn hình cường lực</li>
+                        </ul>
+                    </div>
+
+                    <!-- Specs quick -->
+                    <div class="pd-specs-quick" id="pdQuickSpecs">
+                        <!-- Filled by JS -->
+                    </div>
+
+                    <!-- CTA buttons -->
+                    <div class="pd-cta">
+                        <button class="pd-btn-installment" id="pdInstallmentBtn">Trả góp 0%</button>
+                        <button class="pd-btn-buy" id="pdBuyBtn">Mua Ngay</button>
+                        <button class="pd-btn-icon" id="pdCartIconBtn" title="Thêm vào giỏ hàng">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                                <line x1="3" y1="6" x2="21" y2="6"></line>
+                                <path d="M16 10a4 4 0 0 1-8 0"></path>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <!-- Sticky bar hint -->
+                    <div class="pd-contact-bar">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                        <span>Liên hệ tư vấn: <strong>1800 1234</strong> (Miễn phí)</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ========== SPECS TABLE ========== -->
+            <section class="pd-specs-section">
+                <h2 class="pd-section-heading">Thông số kỹ thuật</h2>
+                <table class="pd-specs-table">
+                    <tbody id="pdSpecs">
+                        <!-- Filled by JS -->
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- ========== RELATED PRODUCTS ========== -->
+            <section class="pd-related">
+                <h2 class="pd-section-heading">Sản phẩm liên quan</h2>
+                <div class="product-grid" id="pdRelated">
+                    <!-- Filled by JS -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- ========== STICKY BOTTOM BAR (mobile) ========== -->
+    <div class="pd-sticky-bar" id="pdStickyBar">
+        <div class="pd-sticky-left">
+            <img src="" alt="" id="pdStickyImg">
+            <div>
+                <div class="pd-sticky-name" id="pdStickyName">Laptop HP</div>
+                <div class="pd-sticky-price" id="pdStickyPrice">$999</div>
+                <div class="pd-sticky-old" id="pdStickyOld"></div>
+            </div>
+        </div>
+        <div class="pd-sticky-btns">
+            <button class="pd-btn-installment" id="pdStickyInstallment">Trả góp 0%</button>
+            <button class="pd-btn-buy" id="pdStickyBuy">Mua Ngay</button>
+            <button class="pd-btn-icon" id="pdStickyCart" title="Giỏ hàng">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <path d="M16 10a4 4 0 0 1-8 0"></path>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- ========== FOOTER ========== -->
+     <!-- ========== FOOTER ========== -->
+    <footer class="footer" id="support">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Column 1 -->
+                <div class="footer-col">
+                    <h3>Về chúng tôi</h3>
+                    <ul>
+                        <li><a href="#">Giới thiệu</a></li>
+                        <li><a href="#">Tuyển dụng</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 2 -->
+                <div class="footer-col">
+                    <h3>Hỗ trợ</h3>
+                    <ul>
+                        <li><a href="#">Chính sách bảo hành</a></li>
+                        <li><a href="#">Chính sách đổi trả</a></li>
+                        <li><a href="#">Vận chuyển</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 3 -->
+                <div class="footer-col">
+                    <h3>Liên hệ</h3>
+                    <ul>
+                        <li><a href="#">Hotline: 0966457974</a></li>
+                        <li><a href="#">Email: vyphan21222005@gmail.com</a></li>
+                        <li><a href="#">Địa chỉ: 285 Cách Mạng Tháng Tám, Phường 12, Quận 10, Thành phố Hồ Chí Minh, Việt Nam</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 4 -->
+                <div class="footer-col">
+                    <h3>Kết nối</h3>
+                    <p>Đăng ký nhận tin tức</p>
+                    <form class="newsletter-form" id="newsletterForm">
+                        <input type="email" placeholder="Email của bạn" required>
+                        <button type="submit">Đăng ký</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========== CART MODAL ========== -->
+    <div class="cart-modal hidden" id="cartModal">
+        <div class="cart-backdrop" id="cartBackdrop"></div>
+        <div class="cart-content">
+            <div class="cart-header">
+                <h3>Giỏ hàng</h3>
+                <button class="cart-close" id="cartCloseBtn">&times;</button>
+            </div>
+            <div class="cart-body">
+                <div id="cartItems"></div>
+                <div class="cart-empty" id="cartEmpty">Giỏ hàng của bạn đang trống.</div>
+            </div>
+            <div class="cart-footer">
+                <div class="cart-total">
+                    <span>Tổng:</span>
+                    <span id="cartTotal">$0</span>
+                </div>
+                <button class="btn btn-primary" id="checkoutBtn">Thanh toán</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== TOAST ========== -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- JavaScript -->
+    <script src="../js/store.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/product.js"></script>
+    <script src="../js/product-detail.js"></script>
+    <script src="../js/cart.js"></script>
+    <script src="../js/contact-widget.js"></script>
+
+</body>
+</html>

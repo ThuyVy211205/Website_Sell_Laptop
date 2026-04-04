@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đơn hàng của bạn - Tech World</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/animations.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="index.html" class="logo-link">
+                        <img src="../images/logo-th.jpg" alt="Tech World Logo">
+                        <span>Tech World</span>
+                    </a>
+                </div>
+
+                <nav class="nav" id="nav">
+        <ul class="nav-list">
+            <li class="dropdown">
+            <a href="#">LapTop <i class="fa fa-caret-down"></i></a>
+                <ul class="dropdown-content">
+                    <li><a href="category.html?cat=hp">Laptop HP</a></li>
+                    <li><a href="category.html?cat=dell">Laptop Dell</a></li>
+                    <li><a href="category.html?cat=lenovo">Laptop Lenovo</a></li>
+                    <li><a href="category.html?cat=macbook">MacBook</a></li>
+                </ul>
+            </li>
+                <li><a href="orders.html">Đơn hàng của bạn</a></li>
+                <li><a href="contact.html">Liên hệ</a></li>
+                <li><a href="about.html">Giới thiệu</a></li>
+        </ul>
+    </nav>
+
+                <div class="search-box">
+                    <input type="text" placeholder="Tìm kiếm sản phẩm..." id="searchInput">
+                    <button class="search-btn" id="searchBtn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <path d="m21 21-4.35-4.35"></path>
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="header-icons">
+                    <button class="icon-btn cart-btn" id="cartBtn">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                            <line x1="3" y1="6" x2="21" y2="6"></line>
+                            <path d="M16 10a4 4 0 0 1-8 0"></path>
+                        </svg>
+                        <span class="badge" id="cartBadge">0</span>
+                    </button>
+                    <div id="auth-buttons"></div> <!-- 26/3 -->
+                    <button class="menu-toggle" id="menuToggle">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="orders-page">
+        <div class="container">
+            <div class="orders-header">
+                <h1>Đơn hàng của bạn</h1>
+                <p>Xem lại các đơn đã đặt gần đây trên trình duyệt này.</p>
+            </div>
+            <section id="ordersList" class="orders-list"></section>
+        </div>
+    </main>
+
+     <!-- ========== FOOTER ========== -->
+    <footer class="footer" id="support">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Column 1 -->
+                <div class="footer-col">
+                    <h3>Về chúng tôi</h3>
+                    <ul>
+                        <li><a href="#">Giới thiệu</a></li>
+                        <li><a href="#">Tuyển dụng</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 2 -->
+                <div class="footer-col">
+                    <h3>Hỗ trợ</h3>
+                    <ul>
+                        <li><a href="#">Chính sách bảo hành</a></li>
+                        <li><a href="#">Chính sách đổi trả</a></li>
+                        <li><a href="#">Vận chuyển</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 3 -->
+                <div class="footer-col">
+                    <h3>Liên hệ</h3>
+                    <ul>
+                        <li><a href="#">Hotline: 0966457974</a></li>
+                        <li><a href="#">Email: vyphan21222005@gmail.com</a></li>
+                        <li><a href="#">Địa chỉ: 285 Cách Mạng Tháng Tám, Phường 12, Quận 10, Thành phố Hồ Chí Minh, Việt Nam</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 4 -->
+                <div class="footer-col">
+                    <h3>Kết nối</h3>
+                    <p>Đăng ký nhận tin tức</p>
+                    <form class="newsletter-form" id="newsletterForm">
+                        <input type="email" placeholder="Email của bạn" required>
+                        <button type="submit">Đăng ký</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="cart-modal hidden" id="cartModal">
+        <div class="cart-backdrop" id="cartBackdrop"></div>
+        <div class="cart-content">
+            <div class="cart-header">
+                <h3>Giỏ hàng</h3>
+                <button class="cart-close" id="cartCloseBtn">&times;</button>
+            </div>
+            <div class="cart-body">
+                <div id="cartItems"></div>
+                <div class="cart-empty" id="cartEmpty">Giỏ hàng của bạn đang trống.</div>
+            </div>
+            <div class="cart-footer">
+                <div class="cart-total">
+                    <span>Tổng:</span>
+                    <span id="cartTotal">$0</span>
+                </div>
+                <button class="btn btn-primary" id="checkoutBtn">Thanh toán</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="toast-container" id="toastContainer"></div>
+
+     <!-- JavaScript -->
+    <script src="../js/store.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/cart.js"></script>
+    <script src="../js/search.js"></script>
+    <script src="../js/orders.js"></script>
+    <script src="../js/contact-widget.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            if (window.updateHeaderUI) {
+                window.updateHeaderUI();
+            }
+        });
+    </script>
+</body>
+</html>
