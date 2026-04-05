@@ -105,9 +105,18 @@ if (checkOldData && !checkOldData.includes('HP Pavilion')) {
             </div>
         `).join('');
     }
-
+        function isLoggedIn() {
+    return !!localStorage.getItem('ecom_current_user');
+    }
     // --- GIỎ HÀNG ---
     window.addToCart = (id) => {
+        if (!isLoggedIn()) {
+        showToast("⚠️ Vui lòng đăng nhập để thêm vào giỏ hàng!");
+        setTimeout(() => {
+            window.location.href = "login.html";
+        }, 1000);
+        return;
+    }
         const product = products.find(p => p.id === id);
         if (!product) return;
         
@@ -125,7 +134,14 @@ if (checkOldData && !checkOldData.includes('HP Pavilion')) {
         showToast(`Đã thêm ${product.name} vào giỏ`);
     };
 
-    window.buyNow = (id) => { window.addToCart(id); showPage('cart'); };
+    window.buyNow = (id) => { if (!isLoggedIn()) {
+        showToast("⚠️ Vui lòng đăng nhập để thêm vào giỏ hàng!");
+        setTimeout(() => {
+            window.location.href = "login.html";
+        }, 1000);
+        return;
+    }
+};
 
     function updateCartBadge() {
         const cartBadge = document.getElementById('cart-count');
