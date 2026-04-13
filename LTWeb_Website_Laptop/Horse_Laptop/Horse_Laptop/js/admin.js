@@ -36,18 +36,31 @@ document.addEventListener('click', (e) => {
 });
 
 function switchAdminTab(tabId, element) {
-    document.querySelectorAll('.admin-section').forEach(sec => sec.classList.remove('active'));
-    document.getElementById(tabId).classList.add('active');
+    // 1. Tìm thẻ có ID tương ứng và ra lệnh trượt mượt mà đến đó
+    const targetSection = document.getElementById(tabId);
+    if (targetSection) {
+        targetSection.scrollIntoView({ 
+            behavior: 'smooth', // Hiệu ứng trượt mượt mà
+            block: 'start'      // Căn mép trên cùng của section
+        });
+    }
+
+    // 2. Cập nhật giao diện của Menu (Xóa active cũ, thêm active vào nút vừa bấm)
     document.querySelectorAll('.admin-menu li').forEach(li => li.classList.remove('active'));
     element.classList.add('active');
     
-    const titles = {'dashboard-view': 'Bảng Điều Khiển', 'products-manage': 'Quản Lý Sản Phẩm', 'orders-manage': 'Quản Lý Đơn Hàng'};
+    // 3. (Tùy chọn) Đổi chữ trên Header cho đúng với phần đang xem
+    const titles = {
+        'dashboard-view': 'Bảng Điều Khiển', 
+        'products-manage': 'Quản Lý Sản Phẩm', 
+        'orders-manage': 'Quản Lý Đơn Hàng'
+    };
     const titleEl = document.getElementById('current-tab-title');
     if (titleEl) {
         titleEl.innerText = titles[tabId];
     }
     
-    // Đóng sidebar trên mobile sau khi click menu
+    // 4. Đóng Menu Sidebar nếu đang dùng trên điện thoại di động
     if (window.innerWidth <= 768) {
         const sidebar = document.querySelector('.admin-sidebar');
         const body = document.querySelector('.admin-body');
@@ -57,7 +70,6 @@ function switchAdminTab(tabId, element) {
         }
     }
 }
-
 function renderDashboard() {
     document.getElementById('dash-revenue').textContent = orders.reduce((sum, ord) => sum + ord.total, 0).toLocaleString('vi-VN') + '₫';
     document.getElementById('dash-orders').textContent = orders.length;

@@ -169,3 +169,23 @@ html, body {
     background: rgba(0, 0, 0, 0.5);
     z-index: 999;
 }
+.admin-section {
+    display: block !important; 
+    
+    /* 1. XÓA dòng min-height: 80vh; ở đây đi */
+    
+    /* 2. Tạo khoảng cách trên dưới vừa phải cho dễ nhìn */
+    padding-top: 20px;
+    padding-bottom: 60px; 
+    
+    /* 3. (Tùy chọn) Thêm một đường kẻ mờ để phân cách các phần nhìn cho chuyên nghiệp */
+    border-bottom: 1px dashed #e4e6ef; 
+    
+    /* 4. Vẫn giữ nguyên bù trừ Header để không bị lẹm chữ */
+    scroll-margin-top: 90px; 
+}
+
+/* Xóa đường kẻ mờ ở phần dưới cùng */
+.admin-section:last-child {
+    border-bottom: none;
+}
