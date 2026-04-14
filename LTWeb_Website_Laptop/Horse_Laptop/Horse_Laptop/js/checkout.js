@@ -44,7 +44,7 @@ function validateForm(data) {
   }
 
   const normalizedPhone = normalizePhone(data.phone);
-  if (!/^(?:\+84|0)\d{9,10}$/.test(normalizedPhone)) {
+  if (!/^(03|05|07|08|09)\d{8}$/.test(normalizedPhone)) {
     errors.phone = 'Số điện thoại không hợp lệ.';
   }
 
